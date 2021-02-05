@@ -3,8 +3,8 @@ pipeline {
 
     stages {
         stage('Clone repo and clean it') {
-	timeout(time: 3, unit: 'SECONDS') { // start of timeout
             steps {
+			timeout(time: 3, unit: 'SECONDS') { // start of timeout
 			script {
 				sh "sudo yum install -y maven"
 				}
