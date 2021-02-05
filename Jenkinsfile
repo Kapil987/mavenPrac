@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'centos_slave' } 
 
     stages {
         stage('Clone repo and clean it') {
