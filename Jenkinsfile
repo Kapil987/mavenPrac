@@ -1,7 +1,9 @@
 pipeline {
     agent { label 'centos_slave' } 
-    timeout(time: 3, unit: 'SECONDS') { // start of timeout
-    stages {
+    options { //start of options
+	timeout(time: 3, unit: 'SECONDS')
+    
+	stages {
         stage('Clone repo and clean it') {
             steps {
 			script {
@@ -40,5 +42,5 @@ pipeline {
                        }// stage Deploy end
 
 	}// stages end
- } //end of timeout block 
+ } //end of options timeout block 
 }
