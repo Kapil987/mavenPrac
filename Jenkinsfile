@@ -4,8 +4,12 @@ pipeline {
     stages {
         stage('Clone repo and clean it') {
             steps {
-			script {	sh "sudo yum install -y maven"
+			timeout(time: 3, unit: 'SECONDS') {
+			script {
+				sh "sudo yum install -y maven"
 				}
+							  }// timout for yum block
+
                 echo 'Hello from Git HUB'
                 cleanWs()
 		   sh "git clone https://github.com/Kapil987/maven_Prac.git"
