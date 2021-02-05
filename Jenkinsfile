@@ -1,10 +1,9 @@
 pipeline {
     agent { label 'centos_slave' } 
-
+    timeout(time: 3, unit: 'SECONDS') { // start of timeout
     stages {
         stage('Clone repo and clean it') {
             steps {
-			timeout(time: 3, unit: 'SECONDS') { // start of timeout
 			script {
 				sh "sudo yum install -y maven"
 				}
@@ -17,7 +16,6 @@ pipeline {
 		   sh "pwd"
 		   sh "mvn -f maven_Prac/pom.xml clean "
                   }//end of steps
-					} //end of timeout block 
                        }// stage build end
             
 	stage('Test') {
@@ -42,4 +40,5 @@ pipeline {
                        }// stage Deploy end
 
 	}// stages end
+ } //end of timeout block 
 }
