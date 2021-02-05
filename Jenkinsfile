@@ -3,12 +3,11 @@ pipeline {
 
     stages {
         stage('Clone repo and clean it') {
+	timeout(time: 3, unit: 'SECONDS') { // start of timeout
             steps {
-			timeout(time: 1, unit: 'SECONDS') {
 			script {
 				sh "sudo yum install -y maven"
 				}
-							  }// timout for yum block
 
                 echo 'Hello from Git HUB'
                 cleanWs()
@@ -17,7 +16,8 @@ pipeline {
 		   sh "cd maven_Prac"
 		   sh "pwd"
 		   sh "mvn -f maven_Prac/pom.xml clean "
-                  }
+                  }//end of steps
+					} //end of timeout block 
                        }// stage build end
             
 	stage('Test') {
