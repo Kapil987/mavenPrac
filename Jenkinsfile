@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'centos_slave' } 
     options { //start of options
-		timeout(time: 3, unit: 'SECONDS')
+		timeout(time: 3, unit: 'MILLISECONDS')
     
  	} //end of options timeout block 
 	stages {
