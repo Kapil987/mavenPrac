@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone repo and clean it') {
             steps {
-                echo 'Hello from Git HUB'
+                echo 'Hello from Git HUB '
                 cleanWs()
 		   sh "git clone https://github.com/Kapil987/maven_Prac.git"
 		   sh "pwd"
